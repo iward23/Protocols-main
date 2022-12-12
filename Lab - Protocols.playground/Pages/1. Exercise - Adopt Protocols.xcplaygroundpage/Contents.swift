@@ -4,10 +4,48 @@
  Create a `Human` class with two properties: `name` of type `String`, and `age` of type `Int`. You'll need to create a memberwise initializer for the class. Initialize two `Human` instances.
  */
 
-
 /*:
  Make the `Human` class adopt the `CustomStringConvertible`. Print both of your previously initialized `Human` objects.
  */
+class Human: CustomStringConvertible, Equatable, Comparable{
+    let name: String
+    let age: Int
+    
+    init(name: String, age: Int){
+        self.name = name
+        self.age = age
+    }
+    var description: String{
+        return "Your name is \(name), and you are \(age) years old"
+    }
+    
+    static func ==(h1: Human, h2: Human) -> Bool
+    {
+        return h1.age == h2.age && h1.name == h2.name
+    }
+    
+    static func < (h1: Human, h2: Human) -> Bool
+    {
+        return h1.name < h2.name
+    }
+    
+}
+let h0 = Human(name: "Cindy", age: 13)
+let h1 = Human(name: "Micheal", age: 47)
+let h2 = Human(name: "Jake", age: 12)
+print(h0)
+    
+print(h1 == h2)
+
+var human:[Human] = [h0, h1, h2]
+var sortedHuman = human.sorted(by: <)
+
+for h in sortedHuman
+{
+    print(h)
+}
+
+
 
 
 /*:
