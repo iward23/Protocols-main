@@ -21,12 +21,19 @@ struct Car: Vehicle{
 }
 
 let myCar = Car.init()
-print("The car has \(myCar.number) wheels.")
+print("The car has \(myCar.numberOfWheels) wheels.")
 myCar.drive()
 Car.name
 /*:
  Define a `Bike` struct that implements the `Vehicle` protocol. `numberOfWheels` should return a value of 2, and `drive()` should print "Begin pedaling!". Create an instance of `Bike`, print its number of wheels, then call `drive()`.
  */
-
-
+struct Bike: Vehicle{
+    var numberOfWheels: Int = 2
+    func drive(){
+        print("Begin pedaling!")
+    }
+}
+let myBike = Bike.init()
+print("My bike has \(myBike.numberOfWheels) wheels")
+myBike.drive()
 //: [Previous](@previous)  |  page 2 of 2  |  [Next: App Exercise - Similar Workouts](@next)
